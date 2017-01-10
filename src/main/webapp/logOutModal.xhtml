@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+<div id="modal4" class="modal">
+	<h:form prependId="false" class="col s12">
+        <div class="modal-content">
+            <h4>Log Out</h4>
+            <p>Are You Sure?</p>
+        </div>
+        <div class="modal-footer">
+            <h:commandButton name="submitButton" class="btn waves-effect waves-green btn-flat paddingtop10" actionListener="#{userBean.submit('logout')}"
+					value="Yes" />
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+         </h:form>
+    </div>
+ </h:body>
+ </html>

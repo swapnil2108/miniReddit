@@ -1,0 +1,8 @@
+com\edu\fullerton\bean\PostsBean.class
+com\edu\fullerton\errors\ErrorAndMessages.class
+com\edu\fullerton\validators\UserCredentialsValidator.class
+com\edu\fullerton\dao\UserDao.class
+com\edu\fullerton\bean\UserBean.class
+com\edu\fullerton\dao\RedditDao.class
+com\edu\fullerton\bean\CommentsBean.class
+com\edu\fullerton\dao\DAO.class

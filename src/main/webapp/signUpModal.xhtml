@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<div id="modal3" class="modal">
+		<h:form prependId="false" class="col s12">
+			<div class="modal-content">
+				<h4>New User?</h4>
+				<p>Create your unique username on MiniReddit</p>
+				<div class="row">
+					<div class="row">
+						<div class="input-field col s12">
+							<h:inputText id="userName" value="#{userBean.userName}" name="userName" type="text" class="validate"/>
+							<label for="userName">User Name</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<h:inputText id="password" value="#{userBean.password}" type="password" class="validate"/>
+							<label for="password">Password</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<h:commandButton name="submitButton" class="btn waves-effect waves-green btn-flat paddingtop10" actionListener="#{userBean.submit('signUp')}"
+					value="Register" />
+				<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+			</div>
+		</h:form>
+	</div>
+</h:body>
+</html>

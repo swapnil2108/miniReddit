@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+     <h:head>
+        <title><ui:insert name="title">MiniReddit</ui:insert></title>
+        <h:outputScript library="js" name="jquery.js" />
+        <h:outputScript library="js" name="materialize.js" />
+        <h:outputScript library="js" name="index.js" />
+        <h:outputStylesheet  library="css"  name="style.css"/>
+        <h:outputStylesheet  library="css"  name="materialize.css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    </h:head>
+
+<h:body class="grey lighten-4 pos"> 
+    <ui:include src="./topNavigation.xhtml" />
+    <ui:include src="./validationMessages.xhtml" />     
+    <ui:include src="./postModal.xhtml" />    
+    <ui:include src="./logOutModal.xhtml" />    
+    <ui:include src="./signUpModal.xhtml" />
+    <ui:include src="./LoginModal.xhtml" />
+    <ui:include src="./getPosts.xhtml" />
+</h:body>
+</html>

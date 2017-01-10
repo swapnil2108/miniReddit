@@ -1,0 +1,13 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body class="center">
+   	<ui:repeat value="#{requestScope.infoMessage}" var="item">
+        <h:outputText styleClass="error" value="#{item}" /> <br></br>
+    </ui:repeat>
+    
+   	<ui:repeat value="#{requestScope.errorMessage}" var="item">
+        <h:outputText styleClass="error" value="#{item}" /> <br></br>
+    </ui:repeat>
+</h:body>
+</html>

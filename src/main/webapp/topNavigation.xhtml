@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+	<nav>
+		<div class="nav-wrapper teal ">
+			<h:link value="MiniReddit" outcome="#" class="brand-logo" />
+			<ul id="nav-web" class="right hide-on-med-and-down">
+				<li class="myLi myMiddle">
+					<a> <h:outputText rendered="#{sessionScope.userInsession.userName != null}" 
+							value="Hello #{sessionScope.userInsession.userName} !!" /></a>
+				</li>
+				<li class="myLi"><a id="usernameTitleBar"
+					class='dropdown-button hide' href='#' data-activates='userdropdown'>
+				</a> <!-- Dropdown Structure -->
+					<ul id='userdropdown' class='dropdown-content'>
+						<li><a href="#!" id="signout">Sign out</a></li>
+					</ul></li>
+				<li class="myLi">
+					<h:link value="New User"  rendered="#{sessionScope.userInsession == null}" 
+						outcome="#modal3" onclick="openModal('modal3');" />
+				</li>
+				<li class="myLi">
+					<h:link value="Sign In" rendered="#{sessionScope.userInsession == null}" 
+						outcome="#modal2" onclick="openModal('modal2');" />
+				</li>
+				<li class="myLi">
+					<h:link value="Post"  rendered="#{sessionScope.userInsession != null}"
+					outcome="#modal1" onclick="openModal('modal1')"/>
+				</li>
+				<li class="myLi">
+					<h:link value="LogOut"  rendered="#{sessionScope.userInsession != null}" outcome="#modal4" onclick="openModal('logoutModal')"/>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</h:body>
+</html>

@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:body>	
+	<div class="row">
+		<ui:repeat value="#{postsBean.fetchAllPosts()}" var="item">
+	        <div class="col s12 m6">
+	          <div class="card car z-depth-5">
+	            <div class="card-content transparent black-text">
+	            	<span class="card-title user z-depth-2"> <i class="material-icons">perm_identity</i><h:outputText styleClass="postedBy" value="#{item.getpostUserName()}" /></span>
+	            	 <ui:fragment rendered="#{sessionScope.userInsession.userName != null}">
+	              		<a class="waves-effect waves-light btn right z-depth-2" onclick="openCommentModal(this);">Add Comments   <i class="material-icons">chat_bubble_outline</i></a>
+	              	</ui:fragment>
+	              	<div class="modal modal-fixed-footer">
+						<h:form prependId="false" class="col s12">
+						     <div class="modal-content">
+						         <h4 style="color: black;">Add comment</h4>
+						         <p style="color: black;">Remember you can have only 100 characters in comments</p>
+						         <div class="row">
+			                         <div class="input-field col s12" id="myCommentArea">
+			                             <h:inputTextarea style="color: black;" id="comments" name="comments" value="#{commentBean.comments}" class="materialize-textarea" />
+			                             <label for="textarea1">Content</label>
+			                         </div>
+						         </div>
+						     </div>
+						     <div class="modal-footer">
+						     	 <c:set var="paramToPass" value="#{item.getPost()}"></c:set>
+						         <h:commandButton name="comment" class="btn waves-effect waves-green btn-flat paddingtop10" onclick="attachCommentValue(this)"
+						         			actionListener="#{commentBean.storeThisCommentForThisPost(paramToPass)}" value="Post" />
+						         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+						     </div>
+					     </h:form>
+					 </div>
+	              	<p><h:outputText  styleClass="post" value="#{item.getPost()}" /></p>
+	            </div>
+	            <ui:fragment rendered="#{empty item.getComments()}">
+		            <div class="card-action blue-grey lighten-4 bh">
+		            	<a class="black-text">No Comments till now</a>
+		            </div>
+	            </ui:fragment>
+	             <ui:repeat value="#{item.getComments()}" var="varialble">
+		            <div class="bh card-action blue-grey lighten-4">
+		              <sup class="com"><b><a class="black-text"><h:outputText value="#{varialble.getComments()}" /></a></b></sup> 
+		              <sub><a class="black-text">- <h:outputText value="#{varialble.getCommentedBy()}" /></a></sub>
+		            </div>
+	            </ui:repeat>
+	          </div>
+	        </div>
+        </ui:repeat>
+      </div>
+    
+    
+</h:body>
+</html>

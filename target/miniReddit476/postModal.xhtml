@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:body>
+<div id="modal1" class="modal modal-fixed-footer">
+	<h:form prependId="false" class="col s12">
+		<h:inputHidden value="#{sessionScope.userInsession.userName}" id="postUserName" />
+	     <div class="modal-content">
+	         <h4>Post a news</h4>
+	         <p>Remember you can have only 150 characters in Posts</p>
+	         <div class="row">
+	             <div class="row">
+	                 <div class="col s12">
+	                     <div class="row">
+	                         <div class="input-field col s12">
+	                             <h:inputTextarea value="#{postsBean.post}" id="post" name="post" class="materialize-textarea" />
+	                             <label for="textarea1">Content</label>
+	                         </div>
+	                     </div>
+	                 </div>
+	             </div>
+	         </div>
+	     </div>
+	     <div class="modal-footer">
+	         <h:commandButton name="Post" class="btn waves-effect waves-green btn-flat paddingtop10" 
+	         			actionListener="#{postsBean.storeThisPostInDB()}" value="Post" />
+	         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+	     </div>
+     </h:form>
+ </div>
+ </h:body>
+ </html>
